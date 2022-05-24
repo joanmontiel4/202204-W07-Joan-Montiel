@@ -1,15 +1,15 @@
 import { Personaje } from './personaje.js';
 
 export class Luchador extends Personaje {
-    arma;
-    destreza; //Value between 0 to 10
-    constructor(nombre, familia, edad, arma, destreza) {
-        super(nombre, familia, edad);
-        this.arma = arma;
-        this.destreza = destreza;
+    weapon;
+    skill; //Value between 0 to 10
+    constructor(name, family, age, weapon, skill) {
+        super(name, family, age);
+        this.weapon = weapon;
+        this.skill = skill;
     }
-    comunicar() {
-        super.comunicar();
+    speak() {
+        super.speak();
         //'Primero pego y luego pregunto'
     }
 }

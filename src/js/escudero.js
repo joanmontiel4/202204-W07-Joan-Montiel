@@ -1,15 +1,15 @@
 import { Personaje } from './personaje.js';
 
 export class Escudero extends Personaje {
-    soyEscuderoDe; //solo puede ser luchador
-    gradoPelotismo; //Un valor entre 0 y 10
-    constructor(nombre, familia, edad, soyEscuderoDe, gradoPelotismo) {
-        super(nombre, familia, edad);
-        this.soyEscuderoDe = soyEscuderoDe;
-        this.gradoPelotismo = gradoPelotismo;
+    squireOf; //solo puede ser luchador
+    gradeOfBowing; //Un valor entre 0 y 10
+    constructor(name, family, age, squireOf, gradeOfBowing) {
+        super(name, family, age);
+        this.squireOf = squireOf;
+        this.gradeOfBowing = gradeOfBowing;
     }
-    comunicar() {
-        super.comunicar();
+    speak() {
+        super.speak();
         //'Soy un loser'
     }
 }

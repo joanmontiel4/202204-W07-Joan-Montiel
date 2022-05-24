@@ -4,42 +4,59 @@ export function renderCards() {
     const characterList = document.querySelector('.characters-list');
     document.querySelector('.col').remove();
 
-    const characterCard = document.createElement('li');
-    characterCard.classList.add('character', 'col');
+    listaPersonajes.forEach((character) => {
+        const characterCard = document.createElement('li');
+        characterCard.classList.add('character', 'col');
 
-    characterCard.innerHTML = `
+        characterCard.innerHTML = `
                     <div class="card character__card">
                         <img
-                            src="./src/img/${listaPersonajes[0].alias}.jpg"
+                            src="./src/img/${character.alias}.jpg"
                             alt="Nombre y familia del personaje"
-                            class="character__picture card-img-top"
+                            class="character__picture card-img-top img-${
+                                character.alias
+                            }"
                         />
                         <div class="card-body">
                             <h2 class="character__name card-title h4">
-                                ${listaPersonajes[0].name} ${
-        listaPersonajes[0].family
-    }
+                                ${character.name} ${character.house}
                             </h2>
-                            <div class="character__info">
+                            <div class="character__info thumbs-${
+                                character.alias
+                            }">
                                 <ul class="list-unstyled">
-                                    <li>Edad: ${
-                                        listaPersonajes[0].age
-                                    } años</li>
+                                    <li>Edad: ${character.age} años</li>
                                     <li>
                                         Estado:
-                                        ${listaPersonajes[0].thumbsUpOrDown()}
+                                        ${character.thumbsUpOrDown()}
                                     </li>
                                 </ul>
                             </div>
                             <div class="character__overlay">
-                                ${listaPersonajes[0].characterOverlay()}
+                                ${character.characterOverlay()}
                             <div class="character__actions">
-                                ${listaPersonajes[0].characterActions()}        
+                                ${character.characterActions()}        
                             </div>
                         </div>
                     </div>
                     <i class="emoji"></i>
                 </div>
     `;
-    characterList.appendChild(characterCard);
+        characterList.appendChild(characterCard);
+    });
+}
+
+export function listenEvents() {
+    listaPersonajes.forEach((character) => {
+        const speakButton = document.querySelector(
+            `.btn-talk-${character.name}`
+        );
+        const dieButton = document.querySelector(`.btn-die-${character.name}`);
+        speakButton.addEventListener('click', () => {
+            character.speak();
+        });
+        dieButton.addEventListener('click', () => {
+            character.die();
+        });
+    });
 }

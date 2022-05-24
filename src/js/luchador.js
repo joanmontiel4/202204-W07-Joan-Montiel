@@ -2,14 +2,29 @@ import { Personaje } from './personaje.js';
 
 export class Luchador extends Personaje {
     weapon;
-    skill; //Value between 0 to 10
-    constructor(name, family, age, weapon, skill) {
-        super(name, family, age);
+    #skill;
+    sentence = 'Primero pego y luego pregunto';
+    constructor(name, house, age, alias, weapon) {
+        super(name, house, age, alias);
         this.weapon = weapon;
-        this.skill = skill;
     }
-    speak() {
-        super.speak();
-        //'Primero pego y luego pregunto'
+
+    get skill() {
+        return this.#skill;
+    }
+
+    set skill(value) {
+        if (value >= 0 && value <= 10) {
+            this.#skill = value;
+        }
+    }
+
+    characterOverlay() {
+        return `
+        <ul class="list-unstyled">
+            <li>Arma que usa: ${this.weapon}</li>
+            <li>Destreza: ${this.skill}</li>
+        </ul>
+    `;
     }
 }

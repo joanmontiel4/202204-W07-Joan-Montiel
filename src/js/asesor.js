@@ -2,8 +2,9 @@ import { Personaje } from './personaje.js';
 
 export class Asesor extends Personaje {
     personaQueAsesora; //rey, luchador, asesor o escudero
-    constructor() {
-        super(nombre, familia, edad, estado, personaQueAsesora);
+    constructor(nombre, familia, edad, personaQueAsesora) {
+        super(nombre, familia, edad);
+        this.personaQueAsesora = personaQueAsesora;
     }
     comunicar() {
         super.comunicar();

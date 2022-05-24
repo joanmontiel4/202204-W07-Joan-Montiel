@@ -1,5 +1,3 @@
-import { main } from './js/main.js';
+import { listaPersonajes } from './js/personajes.js';
 
-(() => {
-    document.addEventListener('DOMContentLoaded', main);
-})();
+document.addEventListener('DOMContentLoaded', () => {});

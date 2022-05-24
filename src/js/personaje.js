@@ -3,9 +3,14 @@ export class Personaje {
     familia;
     edad;
     estado = 'vivo';
-    static serie: 'Juego de Tronos';
-    comunicar() {
-        super.comunicar();
+    static serie = 'Juego de Tronos';
+    constructor(nombre, familia, edad) {
+        this.nombre = nombre;
+        this.familia = familia;
+        this.edad = edad;
     }
-    morir() {}
+    comunicar() {}
+    morir() {
+        this.estado = 'muerto';
+    }
 }

@@ -44,7 +44,7 @@ export class Personaje {
             <img
                 class="comunications__picture"
                 src="./src/img/${this.alias}.jpg"     
-                alt="Nombre y familia del que habla"
+                alt="${this.name} ${this.house}"
             />
         `;
             body.appendChild(speakCard);

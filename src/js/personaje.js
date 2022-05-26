@@ -32,10 +32,7 @@ export class Personaje {
     }
 
     renderComunications() {
-        document.querySelector('.comunications').remove();
-        const body = document.querySelector('body');
-        const speakCard = document.createElement('div');
-        speakCard.classList.add('comunications', `comunication-${this.alias}`);
+        const speakCard = document.querySelector('.comunications');
         speakCard.innerHTML = `
             <p class="comunications__text display-1">
                  ${this.sentence}
@@ -46,15 +43,12 @@ export class Personaje {
                 alt="${this.name} ${this.house}"
             />
         `;
-        body.appendChild(speakCard);
     }
 
     speak() {
         if (this.state === 'alive') {
             this.renderComunications();
-            const speakCard = document.querySelector(
-                `.comunication-${this.alias}`
-            );
+            const speakCard = document.querySelector('.comunications');
             speakCard.classList.toggle('on');
             setTimeout(() => {
                 speakCard.classList.toggle('on');

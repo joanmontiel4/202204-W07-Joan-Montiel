@@ -39,7 +39,7 @@ export function renderCards() {
                             </div>
                         </div>
                     </div>
-                    <i class="emoji"></i>
+                    <i class="emoji">${character.emoji}</i>
                 </div>
     `;
         characterList.appendChild(characterCard);
@@ -49,12 +49,12 @@ export function renderCards() {
 export function listenEvents() {
     listaPersonajes.forEach((character) => {
         const speakButton = document.querySelector(
-            `.btn-talk-${character.name}`
+            `.btn-talk-${character.alias}`
         );
-        const dieButton = document.querySelector(`.btn-die-${character.name}`);
         speakButton.addEventListener('click', () => {
             character.speak();
         });
+        const dieButton = document.querySelector(`.btn-die-${character.alias}`);
         dieButton.addEventListener('click', () => {
             character.die();
         });

@@ -4,6 +4,7 @@ export class Escudero extends Personaje {
     squireOf; //solo puede ser luchador
     #gradeOfBowing; //Un valor entre 0 y 10
     sentence = 'Soy un loser';
+    emoji = '🛡';
     constructor(name, house, age, alias, squireOf) {
         super(name, house, age, alias);
         this.squireOf = squireOf;

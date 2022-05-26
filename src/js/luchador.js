@@ -4,6 +4,7 @@ export class Luchador extends Personaje {
     weapon;
     #skill;
     sentence = 'Primero pego y luego pregunto';
+    emoji = '🗡';
     constructor(name, house, age, alias, weapon) {
         super(name, house, age, alias);
         this.weapon = weapon;

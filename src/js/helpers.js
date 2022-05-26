@@ -49,12 +49,12 @@ export function renderCards() {
 export function listenEvents() {
     listaPersonajes.forEach((character) => {
         const speakButton = document.querySelector(
-            `.btn-talk-${character.name}`
+            `.btn-talk-${character.alias}`
         );
         speakButton.addEventListener('click', () => {
             character.speak();
         });
-        const dieButton = document.querySelector(`.btn-die-${character.name}`);
+        const dieButton = document.querySelector(`.btn-die-${character.alias}`);
         dieButton.addEventListener('click', () => {
             character.die();
         });

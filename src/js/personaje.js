@@ -22,22 +22,21 @@ export class Personaje {
 
     characterActions() {
         return `
-            <button class="character__action btn btn-talk-${this.name}">
+            <button class="character__action btn btn-talk-${this.alias}">
                 habla
             </button>
-            <button class="character__action btn btn-die-${this.name}">
+            <button class="character__action btn btn-die-${this.alias}">
                 muere
             </button>
         `;
     }
 
-    speak() {
-        if (this.state === 'alive') {
-            document.querySelector('.comunications').remove();
-            const body = document.querySelector('body');
-            const speakCard = document.createElement('div');
-            speakCard.classList.add('comunications');
-            speakCard.innerHTML = `
+    renderComunications() {
+        document.querySelector('.comunications').remove();
+        const body = document.querySelector('body');
+        const speakCard = document.createElement('div');
+        speakCard.classList.add('comunications', `comunication-${this.alias}`);
+        speakCard.innerHTML = `
             <p class="comunications__text display-1">
                  ${this.sentence}
             </p>
@@ -47,7 +46,15 @@ export class Personaje {
                 alt="${this.name} ${this.house}"
             />
         `;
-            body.appendChild(speakCard);
+        body.appendChild(speakCard);
+    }
+
+    speak() {
+        if (this.state === 'alive') {
+            this.renderComunications();
+            const speakCard = document.querySelector(
+                `.comunication-${this.alias}`
+            );
             speakCard.classList.toggle('on');
             setTimeout(() => {
                 speakCard.classList.toggle('on');
